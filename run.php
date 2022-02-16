@@ -6,7 +6,7 @@ function _addError(){
     exit;
 }
 
-define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED']) == 'xmlhttprequest');
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 
 if(!IS_AJAX){
     die('Restricted access');
@@ -35,9 +35,11 @@ if($file !== ''){
             $responses[] = 'Invalid file type';
             _addError();
         }
+        
+        $folder_user = 'imgs'.((string) rand(10000, 990000).'_'.time());
 
         while(is_dir($folder_user)){
-            $folder_user = 'vds'.((string) rand(10000, 990000).'_'.time());
+            $folder_user = 'imgs'.((string) rand(10000, 990000).'_'.time());
         }
 
         $create_dir = mkdir($folder_user, 0755);

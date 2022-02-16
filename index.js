@@ -1,15 +1,15 @@
 $("#form_control").on('submit', function(e) {
     e.preventDefault();
-
-    var fileList = [];
-    var fileInput = document.getElementById('_files');
-    fileInput.addEventListener('change', function() {
-        fileList = [];
-        for (let i = 0; i < fileInput.files.length; i++) {
-            fileList.push(fileInput.files[i]);
-        }
-    });
     fectchSaveFiles();
+});
+
+var fileList = [];
+var fileInput = document.getElementById('_files');
+fileInput.addEventListener('change', function() {
+    fileList = [];
+    for (var i = 0; i < fileInput.files.length; i++) {
+        fileList.push(fileInput.files[i]);
+    }
 });
 
 function fectchSaveFiles() {
@@ -26,7 +26,7 @@ function fectchSaveFiles() {
         return false;
     }
 
-    let isImageFile = ture;
+    let isImageFile = true;
     fileList.forEach(function(file) {
         if (authorized_format_file.includes(file.type)) {
             saveFiles(file);
