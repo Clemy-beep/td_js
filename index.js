@@ -51,13 +51,30 @@ function saveFiles(file) {
         cache: false,
         contentType: false,
         processData: false,
+        beforeSend: function() {
+            $("#btn").hide();
+            $("#lds-dual-ring").css("display", "block");
+        },
+        complete: function() {
+            setTimeout(function() {
+                $("#lds-dual-ring").hide();
+                $("#btn").show();
+            }, 2000);
+        },
         success: function(response) {
-            response = JSON.parse(response);
-            if (response.error !== undefined) {
-                return false;
-            }
-            let message = response[0] ? response[0] : "";
-            $("#response").append(message);
+            setTimeout(function() {
+                console.log(response);
+                response = JSON.parse(response);
+                if (response.error !== undefined) {
+                    console.log(response.error);
+                    return false;
+                }
+                let message = response[0] ? response[0] : "";
+                if (message.includes('successfully')) $('#response').css('color', '#41cc81');
+                if (message.includes('error')) $('#response').css('color', 'red');
+                $("#response").append(message);
+
+            }, 2000);
         },
         error: function(error) {
             console.log(error);

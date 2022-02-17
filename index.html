@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>TP Formulaire</title>
 </head>
 
 <body>
     <h1>Formulaire</h1>
-    <h2>Je vais sauvegarder un fichier sur mon serveur 😎</h2>
+    <h2>Je vais sauvegarder un ou plusieurs fichier(s) sur mon serveur 😎</h2>
     <form action="#" method="POST" id="form_control">
         <label for="_file">Add one to three files to updload</label>
         <input type="file" class="form-control" name="_files" id="_files">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <input type="submit" value="Save">
+        <div id="lds-dual-ring"></div>
+        <input type="submit" value="Save" id="btn">
     </form>
-    <div id="response"></div>
+    <span id="response"></span>
 </body>
 <script src="index.js"></script>
 
