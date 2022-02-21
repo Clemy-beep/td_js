@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    text-align: center;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+}
+
+form {
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 1em;
+    border-radius: 8px;
+    width: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    display: block;
+    line-height: 24px;
+    margin-bottom: 1em;
+}
+
+input[type="submit"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    margin-top: 1em;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    padding: 0.7em;
+}
+
+#lds-dual-ring {
+    display: none;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+#response {
+    color: #d3d3d3;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
