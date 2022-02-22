@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 function _addError()
 {
@@ -15,7 +17,7 @@ if (!IS_AJAX) {
 
 $file = isset($_FILES['file']['tmp_name']) ? $_FILES['file']['tmp_name'] : '';
 $responses = ['error' => 'false'];
-$file_name = $_POST['file_name'];
+$file_name = $_POST['fileName'];
 
 if (isset($_POST['file'])) {
     if ($_POST['file'] === "undefined") {
@@ -43,14 +45,14 @@ if ($file !== '') {
             $folder_user = 'imgs' . ((string) rand(10000, 990000) . '_' . time());
         }
 
-        $create_dir = mkdir($folder_user, 0755);
+        $create_dir = mkdir($folder_user, 0777);
         if (move_uploaded_file($_FILES['file']['tmp_name'], $folder_user . '/' . $file_name)) {
-            $cmd = escapeshellcmd('python3 /home/stagiaire8/Documents/td_js/mail.py');
-            $output = shell_exec($cmd);
-            $responses[] = 'Converted successfully' . ' ' . $output;
+            // $cmd = escapeshellcmd('python3 /home/stagiaire8/Documents/td_js/mail.py');
+            // $output = shell_exec($cmd);
+            $responses["0"] = 'Converted successfully';
         } else {
             var_dump($_FILES);
-            $responses[] = 'Converted with errors';
+            $responses["0"] = 'Converted with errors';
         }
     }
 }

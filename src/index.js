@@ -1,7 +1,9 @@
-import { SaveFile } from './save-file.js';
-var saveFiles = new SaveFile("#form_control", document.getElementById('_files'), ["image/jpeg", "image/jpg"], '#btn', '#lds-dual-ring');
-saveFiles.listen();
-saveFiles.listenSubmitAndRun();
+"use strict";
+exports.__esModule = true;
+var save_file_js_1 = require("./save-file.js");
+new save_file_js_1.SaveFile("#form_control", document.getElementById('_files'), ["image/jpeg", "image/jpg"], '#btn', '#lds-dual-ring').listen().listenSubmitAndRun();
+// saveFiles.listen();
+// saveFiles.listenSubmitAndRun();
 // $("#form_control").on('submit', (e: Event): void => {
 //     e.preventDefault();
 //     fectchSaveFiles();
@@ -82,4 +84,3 @@ saveFiles.listenSubmitAndRun();
 //     error?: string,
 //     "0"?: string
 // };
-//# sourceMappingURL=index.js.map
